@@ -1,0 +1,39 @@
+# Does quantization make a network easier to fool?
+
+## Group
+ESE5420
+
+## Topic
+Topic 16 (with own extension)
+
+## Question
+Does post-training weight quantization (int8, int4) of a two-layer MLP on MNIST raise its Lipschitz bound and lower its FGSM robust accuracy, and does weight decay protect against it?
+
+## Why it matters
+Every deployed model is quantized for inference, but robustness is almost never re-checked after. If adding L2 regularization helps restore some lost performance, anyone using quantized models can use it to boost accuracy on small, cheap models. 
+
+## Data
+MNIST / Fashion-MNIST via torchvision
+
+## Baseline
+Multi-class logistic regression with L2 regularization. 
+
+## Comparison
+MLPs at 3–4 weight-decay values, each quantized at fp32, int8, and int4. 
+
+## Evaluation
+Clean vs FGSM accuracy at epsilon values of 0.05, 0.1, and 0.2. 
+
+## Key figure
+x = Lipschitz upper bound, y = robust accuracy at ε=0.1. Different marker shape per quantization, different color per weight decay
+
+## Risks and fallback
+Harsher quantizations (int4) might destroy any accuracy at all. In that case, we can just investigate how weight decay with L2 impacts the Lipschitz bound without quantization. 
+
+Open: if weight decay makes no difference, is that enough for a project talking about how weight decay isn't a valid way to combat accuracy loss due to quantization?
+
+## Who does what
+Solo team
+
+## AI plan
+Use Claude Code to write the quantization helper code and visualization code. Human-check the rest (MLP, training procedure, and conclusions from the results). 

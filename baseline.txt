@@ -1,0 +1,40 @@
+# Does quantization make a network easier to fool?
+
+## Group
+ESE5420 (solo): Nayan
+
+## Changes since the proposal
+I'll use exact quantization (weight-only, symmetric, per-tensor int8 and int4). Biases and activations are not quantizatized. Added a fixed 10,000-image validation split, three seeds per setting, and the weight-decay grid (0, 1e-4, 1e-3, 1e-2) for the MLP.
+
+## Data
+MNIST (torchvision): 60,000 training and 10,000 test images, 784 pixel inputs, 10-class digit label. Pixels divided by 255 with no standardization.
+
+## Split
+The 60,000 images are split into 50,000 train and 10,000 validation. Logistic regression is tuned by stratified 5-fold CV inside the 50,000, repeated with 3 folds.
+
+## Baseline
+Multinomial logistic regression with L2 reg. Test values of C = 1/lambda in (1e-4, 1e-3, 1e-2, 0.1, 1, 10, 100). CV chose C = 0.1 for all three seeds (mean CV accuracy 92.09%, next best C = 1, 91.95%). Refit on all 50,000, then quantized.
+
+## Result
+Logistic regression, scored on the 10,000 validation images:
+
+          Clean accuracy   FGSM accuracy (eps 0.1)   Lipschitz bound
+  fp32    91.8%            6.6%                      7.57
+  int8    91.8%            6.6%                      7.58
+  int4    91.3%            5.9%                      7.66
+
+Error bar: a 95% bootstrap interval, from resampling the validation images 2,000 times. ±0.5 points for clean accuracy and about ±0.5 points for FGSM accuracy.
+
+First MLP comparison: raising weight decay from 0 to 1e-2 lowers the Lipschitz bound from 30.2 to 4.2 and doubles FGSM accuracy from 28.5% to 58.2%, at a cost of 4.7 points of clean accuracy. Quantization changes the bound by less than 2%.
+
+## Issues found
+- All logistic regression seeds gave the same numbers, so the bootstrap interval is its error bar.
+- I was surprised to see int4 slightly raises FGSM accuracy at weight decay 1e-3 and 1e-2. This might require a stronger attack to be conclusive. 
+- int8 is indistinguishable from fp32, so int4 carries the quantization question.
+- The bound can't rank separate model families. Logistic regression has a smaller bound than the unregularized MLP but far lower FGSM accuracy.
+
+## Next steps
+Paired bootstrap of (int4 - fp32) on the same images to yield a more conclusive comparison. PGD attack address potential FGSM failure on int4 (potentially also use per-row int4 quant to address this). Try different attack size epsilon values (0.05, 0.1, 0.2). Lastly, find the optimal weight decay and evaluate on the test set at the end.
+
+## Code
+[repository link]: common.py, baseline.py, mlp.py, make_figure.py.

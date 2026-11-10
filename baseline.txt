@@ -37,4 +37,4 @@ First MLP comparison: raising weight decay from 0 to 1e-2 lowers the Lipschitz b
 Paired bootstrap of (int4 - fp32) on the same images to yield a more conclusive comparison. PGD attack address potential FGSM failure on int4 (potentially also use per-row int4 quant to address this). Try different attack size epsilon values (0.05, 0.1, 0.2). Lastly, find the optimal weight decay and evaluate on the test set at the end.
 
 ## Code
-[repository link]: common.py, baseline.py, mlp.py, make_figure.py.
+https://github.com/nayanp38/ESE5420_final_project: common.py, baseline.py, mlp.py, make_figure.py.

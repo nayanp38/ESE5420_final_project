@@ -26,11 +26,13 @@ def mean_sd(vals):
     return v.mean(), v.std(ddof=1)
 
 
-def main():
+def main(out="baseline.png", title=True, figsize=(7.2, 4.8), fontsize=None):
+    if fontsize:
+        plt.rcParams.update({"font.size": fontsize})
     base = json.load(open("results/baseline.json"))
     mlp = json.load(open("results/mlp.json"))
 
-    fig, ax = plt.subplots(figsize=(7.2, 4.8), dpi=150)
+    fig, ax = plt.subplots(figsize=figsize, dpi=150)
     for q, mk in MARKERS.items():
         L = [r["quant"][q]["lipschitz_upper"] for r in base["runs"]]
         A = [r["quant"][q]["fgsm"][EPS]["acc"] for r in base["runs"]]
@@ -53,8 +55,9 @@ def main():
     ax.set_ylim(0, 70)
     ax.set_xlabel("Lipschitz upper bound of logits (product of spectral norms, log scale)")
     ax.set_ylabel("FGSM accuracy at ε = 0.1 (%, validation)")
-    ax.set_title("Robust accuracy vs Lipschitz bound, MNIST validation split (mean ± 1 SD, 3 seeds)",
-                 fontsize=9.5, loc="left")
+    if title:
+        ax.set_title("Robust accuracy vs Lipschitz bound, MNIST validation split (mean ± 1 SD, 3 seeds)",
+                     fontsize=9.5, loc="left")
     ax.grid(True, which="major", color="#e4e3df", lw=0.8)
     ax.set_axisbelow(True)
     for s in ("top", "right"):
@@ -70,8 +73,8 @@ def main():
           for q, m in MARKERS.items()]
     ax.legend(handles=h, fontsize=8, frameon=False, loc="center left", bbox_to_anchor=(1.0, 0.5))
     fig.tight_layout()
-    fig.savefig("baseline.png", bbox_inches="tight")
-    print("wrote baseline.png")
+    fig.savefig(out, bbox_inches="tight")
+    print("wrote", out)
 
 
 if __name__ == "__main__":

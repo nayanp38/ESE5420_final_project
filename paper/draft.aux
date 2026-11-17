@@ -1,0 +1,71 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{goodfellow2015explaining}
+\citation{fazlyab2019efficient}
+\citation{lin2019defensive}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Question.}{1}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Why it matters.}{1}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{What we compare.}{1}{section*.3}\protected@file@percent }
+\citation{fazlyab2019efficient}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Data}{2}{section.2}\protected@file@percent }
+\newlabel{sec:data}{{2}{2}{Data}{section.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Source.}{2}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Preprocessing.}{2}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Split.}{2}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Method}{2}{section.3}\protected@file@percent }
+\newlabel{sec:method}{{3}{2}{Method}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Baseline: multinomial logistic regression}{2}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Tuning.}{2}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Comparison: two-layer MLP with weight decay}{2}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Tuning.}{2}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Post-training weight quantization}{2}{subsection.3.3}\protected@file@percent }
+\citation{goodfellow2015explaining}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Lipschitz bounds}{3}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Upper bound.}{3}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Lower bound.}{3}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{What quantization can do to the bound.}{3}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}FGSM attack}{3}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experimental setup}{3}{section.4}\protected@file@percent }
+\newlabel{sec:setup}{{4}{3}{Experimental setup}{section.4}{}}
+\@writefile{toc}{\contentsline {paragraph}{Metrics.}{3}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Validation protocol.}{3}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Error bars.}{3}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Reproducibility.}{3}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Preliminary results}{3}{section.5}\protected@file@percent }
+\newlabel{sec:results}{{5}{3}{Preliminary results}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Baseline}{3}{subsection.5.1}\protected@file@percent }
+\citation{athalye2018obfuscated}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Tuning the baseline. Mean stratified 5-fold cross-validation accuracy of logistic regression inside the $50{,}000$ training images, averaged over three fold-shuffle seeds; the fold standard error is the standard deviation over the five folds divided by $\sqrt  {5}$. $C = 0.1$ is selected in every repeat; $C = 1$ is within about one standard error of it.}}{4}{table.1}\protected@file@percent }
+\newlabel{tab:cv}{{1}{4}{Tuning the baseline. Mean stratified 5-fold cross-validation accuracy of logistic regression inside the $50{,}000$ training images, averaged over three fold-shuffle seeds; the fold standard error is the standard deviation over the five folds divided by $\sqrt {5}$. $C = 0.1$ is selected in every repeat; $C = 1$ is within about one standard error of it}{table.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Baseline result. Logistic regression ($C = 0.1$) on the $10{,}000$ validation images, at three weight precisions. Brackets are 95\% bootstrap intervals ($2{,}000$ resamples of the validation images). $L$ is the exact Lipschitz constant of the logits (spectral norm of the weights). \texttt  {int8}{} matches \texttt  {fp32}{}; \texttt  {int4}{} costs about half a point of clean accuracy and two points of FGSM accuracy at $\epsilon = 0.05$.}}{4}{table.2}\protected@file@percent }
+\newlabel{tab:baseline}{{2}{4}{Baseline result. Logistic regression ($C = 0.1$) on the $10{,}000$ validation images, at three weight precisions. Brackets are 95\% bootstrap intervals ($2{,}000$ resamples of the validation images). $L$ is the exact Lipschitz constant of the logits (spectral norm of the weights). \ieight {} matches \fp {}; \ifour {} costs about half a point of clean accuracy and two points of FGSM accuracy at $\epsilon = 0.05$}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Weight decay, the Lipschitz bound and FGSM accuracy}{4}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Quantization}{4}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\texttt  {int8}{} changes nothing measurable.}{4}{section*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\texttt  {int4}{} barely moves the bound.}{4}{section*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\texttt  {int4}{} costs a little clean accuracy.}{4}{section*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The effect of \texttt  {int4}{} on FGSM accuracy depends on weight decay.}{4}{section*.19}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces MLP results on the validation split, mean $\pm $ standard deviation over three seeds. Weight decay lowers both Lipschitz bounds and raises FGSM accuracy at $\epsilon = 0.1$; \texttt  {int8}{} rows match their \texttt  {fp32}{} rows; \texttt  {int4}{} rows differ by a few points in FGSM accuracy, in a direction that depends on weight decay.}}{5}{table.3}\protected@file@percent }
+\newlabel{tab:mlp}{{3}{5}{MLP results on the validation split, mean $\pm $ standard deviation over three seeds. Weight decay lowers both Lipschitz bounds and raises FGSM accuracy at $\epsilon = 0.1$; \ieight {} rows match their \fp {} rows; \ifour {} rows differ by a few points in FGSM accuracy, in a direction that depends on weight decay}{table.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Key figure (first version). FGSM accuracy at $\epsilon = 0.1$ against the Lipschitz upper bound, on the validation split. Points are means over three seeds and bars are $\pm 1$ standard deviation; the baseline has no seed spread. Within the MLP family a smaller bound goes with higher robust accuracy, and the three precisions of each model sit almost on top of each other. The bound does not rank models across families: logistic regression has a small bound and the lowest robust accuracy.}}{5}{figure.1}\protected@file@percent }
+\newlabel{fig:key}{{1}{5}{Key figure (first version). FGSM accuracy at $\epsilon = 0.1$ against the Lipschitz upper bound, on the validation split. Points are means over three seeds and bars are $\pm 1$ standard deviation; the baseline has no seed spread. Within the MLP family a smaller bound goes with higher robust accuracy, and the three precisions of each model sit almost on top of each other. The bound does not rank models across families: logistic regression has a small bound and the lowest robust accuracy}{figure.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Caveats.}{5}{section*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Remaining work}{5}{section.6}\protected@file@percent }
+\newlabel{sec:remaining}{{6}{5}{Remaining work}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Experiments to run before Analysis Complete (30 November)}{5}{subsection.6.1}\protected@file@percent }
+\citation{madry2018towards}
+\citation{fazlyab2019efficient}
+\bibstyle{plainnat}
+\bibdata{references}
+\bibcite{athalye2018obfuscated}{{1}{2018}{{Athalye et~al.}}{{Athalye, Carlini, and Wagner}}}
+\bibcite{fazlyab2019efficient}{{2}{2019}{{Fazlyab et~al.}}{{Fazlyab, Robey, Hassani, Morari, and Pappas}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Effect of \texttt  {int4}{} quantization on FGSM accuracy: \texttt  {int4}{} minus \texttt  {fp32}{}, in percentage points, on the validation split. Circles are individual seeds (the same trained network before and after rounding), bars are their means, and the diamond is the baseline (one deterministic model). \texttt  {int4}{} hurts the unregularized models at $\epsilon = 0.05$ and appears to help the weight-decayed MLPs at larger $\epsilon $.}}{6}{figure.2}\protected@file@percent }
+\newlabel{fig:diff}{{2}{6}{Effect of \ifour {} quantization on FGSM accuracy: \ifour {} minus \fp {}, in percentage points, on the validation split. Circles are individual seeds (the same trained network before and after rounding), bars are their means, and the diamond is the baseline (one deterministic model). \ifour {} hurts the unregularized models at $\epsilon = 0.05$ and appears to help the weight-decayed MLPs at larger $\epsilon $}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Outline of the remaining sections}{6}{subsection.6.2}\protected@file@percent }
+\bibcite{goodfellow2015explaining}{{3}{2015}{{Goodfellow et~al.}}{{Goodfellow, Shlens, and Szegedy}}}
+\bibcite{lin2019defensive}{{4}{2019}{{Lin et~al.}}{{Lin, Gan, and Han}}}
+\bibcite{madry2018towards}{{5}{2018}{{Madry et~al.}}{{Madry, Makelov, Schmidt, Tsipras, and Vladu}}}
+\gdef \@abspage@last{7}

@@ -1,0 +1,44 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Athalye et~al.(2018)Athalye, Carlini, and
+  Wagner]{athalye2018obfuscated}
+Anish Athalye, Nicholas Carlini, and David Wagner.
+\newblock Obfuscated gradients give a false sense of security: Circumventing
+  defenses to adversarial examples.
+\newblock In \emph{Proceedings of the 35th International Conference on Machine
+  Learning}, 2018.
+
+\bibitem[Fazlyab et~al.(2019)Fazlyab, Robey, Hassani, Morari, and
+  Pappas]{fazlyab2019efficient}
+Mahyar Fazlyab, Alexander Robey, Hamed Hassani, Manfred Morari, and George~J.
+  Pappas.
+\newblock Efficient and accurate estimation of {L}ipschitz constants for deep
+  neural networks.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~32, 2019.
+
+\bibitem[Goodfellow et~al.(2015)Goodfellow, Shlens, and
+  Szegedy]{goodfellow2015explaining}
+Ian~J. Goodfellow, Jonathon Shlens, and Christian Szegedy.
+\newblock Explaining and harnessing adversarial examples.
+\newblock In \emph{International Conference on Learning Representations}, 2015.
+
+\bibitem[Lin et~al.(2019)Lin, Gan, and Han]{lin2019defensive}
+Ji~Lin, Chuang Gan, and Song Han.
+\newblock Defensive quantization: When efficiency meets robustness.
+\newblock In \emph{International Conference on Learning Representations}, 2019.
+\newblock arXiv:1904.08444.
+
+\bibitem[Madry et~al.(2018)Madry, Makelov, Schmidt, Tsipras, and
+  Vladu]{madry2018towards}
+Aleksander Madry, Aleksandar Makelov, Ludwig Schmidt, Dimitris Tsipras, and
+  Adrian Vladu.
+\newblock Towards deep learning models resistant to adversarial attacks.
+\newblock In \emph{International Conference on Learning Representations}, 2018.
+
+\end{thebibliography}
